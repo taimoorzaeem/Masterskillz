@@ -7,7 +7,7 @@ const { result } = require("lodash");
 var successfulLogin = false;
 var activeUserID = -1
 const app = express();
-var config = require("config.js");
+var config = require("config");
 coursesArray = []
 
 app.set('view engine', 'ejs');;
