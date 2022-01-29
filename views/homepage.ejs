@@ -1,0 +1,264 @@
+<%- include('partials/header.ejs') %>
+<body>
+    <div id="hook">
+        <header>
+            <div class="navbar">
+                <div class="logo">
+                    <img src="logo.png" alt="" width="100px" height="100px">
+                    <h1>MasterSkills</h1>
+                </div>
+                <div class="navMenu">
+                    <div class="navItem">
+                        <a href="#" class="navLink">Home</a>
+                    </div>
+                    <div class="navItem">
+                        <a href="/about" class="navLink">About</a>
+                    </div>
+                    <div class="navItem">
+                        <a data-toggle="modal" data-target="#loginOptions" class="navLink navLogin">Login</a>
+                    </div>
+                    <div class="navItem">
+                        <a class="navLink navSignUp" data-target="#signupOptions" data-toggle="modal">Sign
+                            Up</a>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <div id="noob">
+            <div class="heroText">
+                <div class="heroHead">
+                    <h1>GET THE BEST COURSES ONLINE</h1>
+                </div>
+                <div class="heroAbout">
+                    <p>We offer the best courses about anything you want. <br>
+                        Get the best from the best.
+                    </p>
+                </div>
+            </div>
+            <div class="Buttons">
+                <div class="loginButton">
+                    <button data-toggle="modal" data-target="#loginOptions">Login</button>
+                </div>
+                <div class="registerButton">
+                    <button data-toggle="modal" data-target="#signupOptions">Register</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="loginOptions">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Login!</h4>
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div>
+                            <div class="form-group">
+                                <button class="btn btn-large btn-dark" data-toggle="modal"
+                                    data-target="#teacherLoginModal">Login as Teacher</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-large btn-dark" data-toggle="modal"
+                                data-target="#student-login-Modal">Login As Student</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="teacherLoginModal">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Login As Teacher!</h4>
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form action="/teacherLogin" method="post">
+                            <div class="form-group">
+                                <label for="email">Email address:</label>
+                                <input type="email" class="form-control" placeholder="Enter email"
+                                    id="teacher-login-email" name="teacherLoginEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" placeholder="Enter password"
+                                    id="teacher-login-pwd" name="teacherLoginPwd" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-success" type="submit" id="teacher-Login-btn">Login!</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Modal footer -->
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="student-login-Modal">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Login As Student!</h4>
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form action="/studentLogin" method="post">
+                            <div class="form-group">
+                                <label for="email">Email address:</label>
+                                <input type="email" class="form-control" placeholder="Enter email"
+                                    id="student-login-email" name="studentLoginEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" placeholder="Enter password"
+                                    id="student-login-pwd" name="studentLoginPwd" required>
+                            </div>
+                        
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button class="btn btn-success" type="submit" id="studentLoginbtn">Login!</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="signupOptions">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Sign Up!</h4>
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <button class="btn btn-large btn-dark" data-target="#teacher-register-modal"
+                                data-toggle="modal">Register as Teacher</button>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-large btn-dark" data-toggle="modal"
+                                data-target="#student-register-modal">Register As Student</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="teacher-register-modal">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Register for New Account</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <form name="stu-reg-form" action="/teacherRegister" id="teacher-form" method="post">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="Text" class="form-control" placeholder="Enter First Name"
+                                    id="teacher-fName" name="teacherfName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Last Name" id="teacher-lName"
+                                    name="teacherlName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" placeholder="Enter Email"
+                                    id="teacher-reg-email" name="teacheremail" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="text" class="form-control" placeholder="Enter Password"
+                                    id="teacher-reg-password" name="teacherpwd" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dob">Date Of Birth:</label>
+                                <input type="date" class="form-control" id="teacher-dob" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dob">Qualification</label>
+                                <input type="Text" class="form-control" id="teacher-qualification" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-dark" type="submit"
+                                    id="teacher-register-button">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="student-register-modal">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Register for New Account</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form action="/studentRegister" id="student-form" method="post">
+                        <div class="form-group">
+                            <label for="fName">First Name</label>
+                            <input type="text" class="form-control" placeholder="Enter First Name"
+                                name="fName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lName">Last Name</label>
+                            <input type="text" class="form-control" placeholder="Enter Last Name"
+                                name="lName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lName">Email</label>
+                            <input type="email" class="form-control" placeholder="Enter Last Name"
+                                name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lName">Password</label>
+                            <input type="password" class="form-control" placeholder="Enter Last Name"
+                                name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Date Of Birth:</label>
+                            <input name="date" type="date" class="form-control" id="student-dob">
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">University/Institute</label>
+                            <input type="Text" class="form-control" id="student-uni">
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-dark" type="submit" id="student-register-button">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

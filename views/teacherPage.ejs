@@ -1,0 +1,33 @@
+<%- include("partials/header.ejs") %>
+<body>
+    <div class="top-box">
+        <header>
+            <div class="navbar">
+                <div class="logo">
+                    <img src="logo.png" alt="" width="100px" height="100px">
+                    <h1>MasterSkills</h1>
+                </div>
+                <div class="navMenu">
+                    <div class="navItem">
+                        <a href="/" class="navLink">Log out</a>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <div class="userPage-name">
+            <h1>Hello There <%=name%>!</h1>
+            <br>
+            <div>
+                <p style="font-size: larger;">Welcome to MasterSkills, Good Luck in Spreading Knowledge!</p>
+            </div>
+        </div>
+    </div>
+    <div class="UserPage-belowBox">
+        <h1>Add a course!</h1>
+        <button style="padding: 5px; background-color: black;">
+            <a href="/addCourse" style="text-decoration: none; color: white;">Add Course</a>
+        </button>
+    </div>
+</body>
+</html>

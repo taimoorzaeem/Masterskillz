@@ -1,0 +1,46 @@
+<%- include('partials/header.ejs') %>
+
+    <body>
+        <header>
+            <div class="navbar">
+                <div class="logo">
+                    <img src="logo.png" alt="" width="100px" height="100px">
+                    <h1>MasterSkills</h1>
+                </div>
+                <div class="navMenu">
+                    <div class="navItem">
+                        <a href="/userPage" class="navLink">Home</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container" style="margin-top: 10px; text-align: center;">
+            <h1>Courses</h1>
+        </div>
+
+        <div class="container" style="margin: 10px 0px; text-align: center;">
+        <h6><strong>NOTE: You can't enroll in courses you have already enrolled.</strong></h6>
+        </div>
+        <% for(i=0; i < coursesArray.length; i++){ %>
+            <div class="card" style="width: 60%; margin: auto; text-align: center;">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= coursesArray[i].cname %>
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        Category: <%= coursesArray[i].category %>
+                    </h6>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        Instructor: <%= coursesArray[i].first_name %> <%= coursesArray[i].last_name %>
+                    </h6>
+                    <p class="card-text">
+                        <%= coursesArray[i].course_description %>
+                    </p>
+                    <a href="/content/<%=coursesArray[i].course_id%>" class="card-link">Start Course!</a>
+                </div>
+            </div>
+            <% } %>
+
+    </body>
+
+    </html>
